@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    background: var(--primary);
+    width: 90%;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    padding: 3rem;
+}
+.search_form {
+    background: var(--bg-body);
+    padding: 1rem;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search_input {
+    width: 720px;
+    border: none;
+    font-size: 1.5rem;
+    background: none;
+    outline: none;
+}

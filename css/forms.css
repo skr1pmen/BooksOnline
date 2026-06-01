@@ -1,0 +1,59 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.reg_form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--primary);
+    padding: 1rem 2rem;
+    border-radius: 25px;
+}
+.title {
+    font-size: 2rem;
+    text-align: center;
+}
+label {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+.placeholder {
+    color: var(--text-muted);
+}
+input {
+    outline: none;
+    font-size: 1rem;
+    color: var(--text);
+    border: none;
+    background: var(--bg-body);
+    padding: .5rem;
+    border-radius: 50px;
+    width: 100%;
+}
+.remember {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+input[type="checkbox"] {
+    width: max-content;
+}
+input[type="submit"] {
+    transition: all .3s linear;
+}
+input[type="submit"]:hover {
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / .25);
+    cursor: pointer;
+}
+.back {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}

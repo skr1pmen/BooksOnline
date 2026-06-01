@@ -1,0 +1,60 @@
+@import "header.css";
+@import "index.css";
+@import "forms.css";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-body: #fafafa;
+    --primary: #d0fdb1;
+    --secondary: #e1fbc6;
+    --text: #292929;
+    --text-muted: #575757;
+    --radius: 1rem;
+}
+
+body {
+    background: var(--bg-body);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 1200px;
+    padding: .5rem;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+.btn {
+    background: var(--secondary);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    transition: background .3s linear;
+    border: none;
+    font-size: 1rem;
+    width: max-content;
+    cursor: pointer;
+}
+.btn:hover {
+    background: var(--primary);
+}
+footer {
+    height: 75px;
+}
+footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

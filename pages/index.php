@@ -1,6 +1,8 @@
 <?php
 $page_title = "Главная";
 ob_start();
+session_start();
+//var_dump($_SESSION);
 ?>
 
 <div class="wrapper">

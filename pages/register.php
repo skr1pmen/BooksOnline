@@ -6,7 +6,7 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
     <title><?= $page_title ?? "Онлайн библиотека" ?></title>
 </head>
-<div class="wrapper">
+<div class="wrapper_">
     <a href="../pages/index.php" class="back">Назад</a>
     <form action="../handlers/registration.php" method="post" class="reg_form">
         <h2 class="title">Регистрация</h2>

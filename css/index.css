@@ -32,6 +32,48 @@
     outline: none;
 }
 
+.books {
+    display:grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: auto;
+    margin: 0 auto;
+    gap: 1rem;
+}
+.book {
+    display: grid;
+    grid-template-rows: 300px auto auto auto;
+    background: #f1f1f1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    gap: .5rem;
+}
+.book .cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+}
+.book .book_title {
+    padding: 0 .5rem;
+}
+.book .book_author {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 0 .5rem;
+}
+.book .btn {
+    margin: 0 auto;
+    width: 90%;
+    padding: .5rem 1rem;
+    height: max-content;
+    color: var(--text);
+}
+
+.book .btn:last-child {
+    margin: 0 auto .5rem;
+}
+
 /*  Стили для профиля   */
 .user_card {
     display: flex;
@@ -56,4 +98,54 @@
 }
 .user_card .btn {
     color: var(--text);
+}
+
+.user_rented {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.user_rented .book {
+    gap: .5rem;
+}
+
+
+.user_rented .book .btn {
+    color: var(--text);
+
+    &:last-child {
+        margin-bottom: 1rem;
+    }
+}
+
+/*  Стили для страницы книги    */
+
+.book_page {
+    display: grid;
+    grid-template-columns: 400px auto;
+    gap: 1rem;
+
+}
+
+.book_page img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: .75rem;
+}
+
+.info .btn {
+    color: var(--text);
+}
+
+.info .title {
+    text-align: left;
 }

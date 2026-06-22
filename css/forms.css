@@ -57,3 +57,7 @@ input[type="submit"]:hover {
     top: 2rem;
     left: 2rem;
 }
+
+.input_hidden {
+    display: none;
+}

@@ -24,24 +24,20 @@ foreach ($books as $book) {
 }
 ?>
 
-<div class="wrapper">
-    <div class="search">
-        <form class="search_form" action="../handlers/search.php" method="get">
-            <input class="search_input" type="text" placeholder="Поиск">
-            <input class="btn" type="submit" value="Найти">
-        </form>
+    <div class="wrapper">
+        <div class="books">
+            <?php foreach ($booksFinally as $book) { ?>
+                <div class="book">
+                    <img src="../public/books/<?= $book['cover'] ?>" alt="Обложка книги" class="cover">
+                    <h2 class="book_title"><?= $book['title'] ?></h2>
+                    <span class="book_author"><?= $book['author'] ?></span>
+                    <a href="./books.php?id=<?= $book['id'] ?>" class="btn">Подробнее</a>
+                    <a href="./editbook.php?id=<?= $book['id'] ?>" class="btn">Редактировать</a>
+                    <a href="../handlers/books/deletebook.php?id=<?= $book['id'] ?>" class="btn">Удалить</a>
+                </div>
+            <?php } ?>
+        </div>
     </div>
-    <div class="books">
-        <?php foreach ($booksFinally as $book) { ?>
-            <div class="book">
-                <img src="../public/books/<?= $book['cover'] ?>" alt="Обложка книги" class="cover">
-                <h2 class="book_title"><?= $book['title'] ?></h2>
-                <span class="book_author"><?= $book['author'] ?></span>
-                <a href="./books.php?id=<?= $book['id'] ?>" class="btn">Подробнее</a>
-            </div>
-        <?php } ?>
-    </div>
-</div>
 
 <?php
 $content = ob_get_clean();

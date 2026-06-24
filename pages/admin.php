@@ -25,6 +25,7 @@ foreach ($books as $book) {
 ?>
 
     <div class="wrapper">
+        <a href="./createBook.php" class="btn create_btn">Создать книгу</a>
         <div class="books">
             <?php foreach ($booksFinally as $book) { ?>
                 <div class="book">

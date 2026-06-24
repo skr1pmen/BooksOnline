@@ -39,6 +39,9 @@ if (empty($error)) {
     $query->execute([':id' => $id]);
     $book = $query->fetch();
 
+    $newAuthorId = [];
+    $newAuthorId['id'] = $book['author_id'];
+
     if (empty($authorId)) {
         # Создание нового автора
         $newAuthorId = execute(
@@ -49,7 +52,43 @@ if (empty($error)) {
     } else {
         if ($authorId['id'] !== $book['author_id']) {
             # Меняем автора
+            $newAuthorId = $authorId;
         }
     }
+
+    if (!empty($cover)) {
+        try {
+            move_uploaded_file($cover['tmp_name'], '../../public/books/'. $title . $year . '.jpg');
+        } catch (Exception $e) {
+            $error[] = "Не удалось загрузить обложку";
+        }
+    }
+
+    if ($title != $book['title'] || $year != $book['year']) {
+        $path = "../../public/books/";
+        rename($path.$book['title'].$book['year'].'.jpg', $path.$title.$year.'.jpg');
+    }
+
+    execute(
+        $pdo,
+        "UPDATE books 
+            SET title = :title, description = :description, 
+                year = :year, author_id = :author_id, cover = :cover",
+        [
+            ":title" => $title,
+            ":description" => $desc,
+            ":year" => $year,
+            ':author_id' => $newAuthorId['id'],
+            ":cover" => $title.$year.'.jpg'
+        ]
+    );
+    header("location: ../../pages/editbook.php?id=".$id);
+    exit;
+}
+
+if (!empty($error)) {
+    $_SESSION["error"] = $error;
+    header("location: ../../pages/editbook.php?id=".$id);
+    exit;
 }
 

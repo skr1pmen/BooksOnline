@@ -149,3 +149,8 @@
 .info .title {
     text-align: left;
 }
+
+.create_btn {
+    color: var(--text);
+    margin-left: auto;
+}-

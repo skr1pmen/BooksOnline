@@ -1,4 +1,12 @@
 <?php
+require "../config/db.php";
+session_start();
+
+if ($_SESSION['user_id']) {
+    $query = $pdo->prepare("SELECT is_admin FROM users WHERE id = :id");
+    $query->execute([':id' => $_SESSION['user_id']]);
+    $isAdmin = $query->fetch();
+}
 ?>
 
 <!doctype html>
@@ -14,12 +22,15 @@
 <body>
     <header>
         <div class="container">
-            <a href="/" class="logo">📚 Онлайн библиотека</a>
+            <a href="../pages/" class="logo">📚 Онлайн библиотека</a>
             <nav class="nav_link">
                 <ul class="nav_items">
-                    <li class="item"><a class="link" href="/">🏠 Главная</a></li>
+                    <li class="item"><a class="link" href="../pages/">🏠 Главная</a></li>
                     <li class="item"><a class="link" href="../pages/authors.php">🧔 Авторы</a></li>
                     <?php if(isset($_SESSION['user_id'])): ?>
+                        <?php if($isAdmin['is_admin']): ?>
+                            <li class="item"><a href="../pages/admin.php" class="link">⚙ Админка</a></li>
+                        <?php endif; ?>
                         <li class="item"><a class="link" href="../pages/profile.php">🙍‍♀️ Профиль</a></li>
                         <li class="item"><a class="link" href="../pages/logout.php">🚪 Выход</a></li>
                     <?php  else: ?>
